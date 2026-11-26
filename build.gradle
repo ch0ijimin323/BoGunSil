@@ -54,6 +54,16 @@ springBoot {
     mainClass = 'com.school.healthroom.HealthRoomApplication'
 }
 
+// 배포 실행 명령(railway.json)이 찾는 파일 이름을 고정한다
+tasks.named('bootJar') {
+    archiveFileName = 'app.jar'
+}
+
+// 실행할 수 없는 -plain.jar 는 만들지 않는다
+tasks.named('jar') {
+    enabled = false
+}
+
 tasks.named('test') {
     useJUnitPlatform()
 }
